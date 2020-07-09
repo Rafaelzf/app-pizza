@@ -12,20 +12,8 @@ export const MainBox = styled.div`
 	max-width: 300px;
 	display: flex;
 	flex-direction: column;
-`;
 
-export const Button = styled.button`
-	margin-top: 10px;
-	border: 0;
-	border-radius: 4px;
-	height: 48px;
-	font-size: 22px;
-	background: #563d7c;
-	color: #fff;
-	font-style: bold;
-	cursor: pointer;
-
-	&:hover {
-		background: #4a148c;
+	a ::hover {
+		background-color: #b71c1c;
 	}
 `;

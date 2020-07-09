@@ -1,16 +1,16 @@
 import React from "react";
-import { Container, MainBox, Button } from "./style";
-import logos from "../../Images/logos.svg";
-import { RouteComponentProps } from "react-router-dom";
+import { Container, MainBox } from "./style";
+import { Header } from "../../Componens/Header";
+import { Link } from "react-router-dom";
 
-export const Main: React.FunctionComponent<RouteComponentProps> = ({
-	history,
-}) => {
+export const Main = () => {
 	return (
 		<Container>
 			<MainBox>
-				<img src={logos} alt="Logo" />
-				<Button onClick={() => history.push("/Massa")}>Vamos lá</Button>
+				<Header />
+				<Link to="/Massa" className="btn-large pink darken-4">
+					Vamos lá
+				</Link>
 			</MainBox>
 		</Container>
 	);
