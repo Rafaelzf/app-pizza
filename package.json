@@ -10,6 +10,7 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
+    "eitherx": "^1.0.2",
     "firebase": "^7.15.5",
     "materialize-css": "^1.0.0-rc.2",
     "react": "^16.13.1",
