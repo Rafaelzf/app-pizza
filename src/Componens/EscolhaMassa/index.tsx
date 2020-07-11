@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { IchooseMassa } from "./types";
+import { IchooseMassa } from "../types/types";
 import { Link } from "react-router-dom";
-import { Title, Text } from "./style";
+import { ComponentButton } from "../Buttons/index";
+import { Title, Text, Collection } from "../css/style";
 import "materialize-css/dist/css/materialize.min.css";
 
 export const EscolhaMassa = (props: IchooseMassa) => {
 	const [visualKey, setvisualKey] = useState<boolean>(true);
+
 	const { massa } = props;
 
 	const msg = (erro: string) => {
@@ -21,6 +23,9 @@ export const EscolhaMassa = (props: IchooseMassa) => {
 		}
 	}, [massa]);
 
+	const action = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+		return e.currentTarget.classList.toggle("active");
+	};
 	return (
 		<>
 			{!!visualKey ? (
@@ -32,25 +37,27 @@ export const EscolhaMassa = (props: IchooseMassa) => {
 					<blockquote>
 						<Title>Escolha seu tipo de massa.</Title>
 					</blockquote>
+					<Collection className="collection">
+						{massa.map((element, index) => {
+							return (
+								<Link
+									to="#!"
+									className="collection-item"
+									key={index}
+									data-index-number={index}
+									onClick={(
+										e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+									) => {
+										action(e);
+									}}
+								>
+									<Text>{element}</Text>
+								</Link>
+							);
+						})}
+					</Collection>
 
-					<div className="collection ">
-						<Link to="#!" className="collection-item">
-							<Text>Alvin</Text>
-						</Link>
-
-						<a href="#!" className="collection-item active red darken-3 pulse">
-							Alvin
-						</a>
-						<a href="#!" className="collection-item">
-							Alvin
-						</a>
-						<a href="#!" className="collection-item">
-							Alvin
-						</a>
-					</div>
-					<Link to="/Massa" className="btn-large pink darken-4 ">
-						Próximo
-					</Link>
+					<ComponentButton home={false} destino={"/Recheio"} text={"Próximo"} />
 				</>
 			)}
 		</>

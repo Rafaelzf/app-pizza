@@ -3,36 +3,28 @@ import { Container, MainBox } from "../css/style";
 import "materialize-css/dist/css/materialize.min.css";
 import ErroBoundary from "../../Componens/ErroBoundary";
 import firebase from "../../Database/conection";
-import { EscolhaRecheio } from "../../Componens/EscolhaRecheio";
+import { EscolhaPizzas } from "../../Componens/EscolhaPizzas";
 import { Header } from "../../Componens/Header";
 
-export const Recheio = () => {
-	const [infoMassas, setCount] = useState<any>([]);
+export const Ofertas = () => {
+	const [infoMassas, setCount] = useState<any>(undefined);
 	const [infoM, setinfoM] = useState<any>([]);
 
 	useEffect(() => {
 		firebase
 			.database()
-			.ref("recheio")
+			.ref("Pizzas")
 			.on("value", (snapshot: any) => {
 				const lista: Array<object> = [];
 
 				snapshot.forEach((childItem: any) => {
-					let result = [];
-					let json_data = childItem.toJSON();
-
-					for (let i in json_data) result.push([i, json_data[i]]);
-
-					const tipo = result.length > 4 ? "Salgada" : "Doce";
-
-					result.map((element, index) => {
-						return lista.push({
-							key: element[0],
-							nome: element[1],
-							tipo,
-						});
+					lista.push({
+						key: childItem.key,
+						nome: childItem.val().nome,
+						valor: childItem.val().valor,
 					});
 				});
+
 				setCount(lista);
 			});
 	}, []);
@@ -49,7 +41,7 @@ export const Recheio = () => {
 				<ErroBoundary>
 					<MainBox>
 						<Header />
-						<EscolhaRecheio dados={infoM} />
+						<EscolhaPizzas dados={infoM} />
 					</MainBox>
 				</ErroBoundary>
 			</MainBox>

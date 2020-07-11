@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Button } from "./style";
+import { Container, Button, MainBox } from "./style";
 
 class ErroBoundary extends React.Component {
 	readonly state = {
@@ -24,19 +24,21 @@ class ErroBoundary extends React.Component {
 		if (this.state.hasError) {
 			return (
 				<Container>
-					<div>
-						<i className="large material-icons">sync_problem</i>
-						<i className="large material-icons">mood_bad</i>
-					</div>
-					<blockquote>
-						<h4>Houve algum erro ao carregar esta página.</h4>
-					</blockquote>
-					<Button
-						className="btn waves-effect waves-purple"
-						onClick={() => window.history.back()}
-					>
-						Voltar
-					</Button>
+					<MainBox>
+						<div>
+							<i className="large material-icons">sync_problem</i>
+							<i className="large material-icons">mood_bad</i>
+						</div>
+						<blockquote>
+							<strong>Erro ao carregar esta página.</strong>
+						</blockquote>
+						<Button
+							className="btn waves-effect waves-purple"
+							onClick={() => window.history.back()}
+						>
+							Voltar
+						</Button>
+					</MainBox>
 				</Container>
 			);
 		}

@@ -5,13 +5,17 @@ export const Container = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-direction: column;
 `;
 
 export const MainBox = styled.div`
 	width: 100%;
-	max-width: 300px;
 	display: flex;
 	flex-direction: column;
+	align-items: center;
+	strong {
+		font-size: 18px;
+	}
 `;
 
 export const Button = styled.button`
@@ -24,4 +28,5 @@ export const Button = styled.button`
 	color: #fff;
 	font-style: bold;
 	cursor: pointer;
+	width: 100%;
 `;

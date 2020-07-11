@@ -3,43 +3,33 @@ import { Container, MainBox } from "../css/style";
 import "materialize-css/dist/css/materialize.min.css";
 import ErroBoundary from "../../Componens/ErroBoundary";
 import firebase from "../../Database/conection";
-import { EscolhaRecheio } from "../../Componens/EscolhaRecheio";
+import { EscolhaSuas } from "../../Componens/EscolhaSuas";
 import { Header } from "../../Componens/Header";
 
-export const Recheio = () => {
+export const SuasEscolhas = () => {
 	const [infoMassas, setCount] = useState<any>([]);
 	const [infoM, setinfoM] = useState<any>([]);
 
 	useEffect(() => {
 		firebase
 			.database()
-			.ref("recheio")
+			.ref("Borda")
 			.on("value", (snapshot: any) => {
-				const lista: Array<object> = [];
-
-				snapshot.forEach((childItem: any) => {
-					let result = [];
-					let json_data = childItem.toJSON();
-
-					for (let i in json_data) result.push([i, json_data[i]]);
-
-					const tipo = result.length > 4 ? "Salgada" : "Doce";
-
-					result.map((element, index) => {
-						return lista.push({
-							key: element[0],
-							nome: element[1],
-							tipo,
-						});
-					});
-				});
-				setCount(lista);
+				setCount(snapshot.val());
 			});
 	}, []);
 
 	useEffect(() => {
-		if (!!infoMassas) {
-			setinfoM(infoMassas);
+		if (infoMassas.length > 0) {
+			const objectFilter = infoMassas.filter((value: any) => {
+				let valueItem = "";
+				if (typeof value === "string") {
+					valueItem = value;
+				}
+				return valueItem;
+			});
+
+			setinfoM(objectFilter);
 		}
 	}, [infoMassas]);
 
@@ -49,7 +39,7 @@ export const Recheio = () => {
 				<ErroBoundary>
 					<MainBox>
 						<Header />
-						<EscolhaRecheio dados={infoM} />
+						<EscolhaSuas massa={infoM} />
 					</MainBox>
 				</ErroBoundary>
 			</MainBox>
