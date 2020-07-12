@@ -21,6 +21,7 @@ export interface IButtons {
 	text?: string;
 	chooses?: object;
 	remetente?: string;
+	disabled?: boolean;
 }
 
 export interface IRecheios {

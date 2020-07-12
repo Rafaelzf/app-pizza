@@ -74,9 +74,17 @@ export const ContainerCollection = styled.div`
 `;
 
 export const ContainerButtons = styled.div`
-	.pink {
+	.btn-large {
+		display: flex;
+		justify-content: center;
 		margin-bottom: 15px;
 		width: 100%;
+	}
+	.disabled {
+		background-color: #dfdfdf !important;
+		transition: background 0.8s;
+	}
+	.pink {
 		background-position: center;
 		transition: background 0.8s;
 		background-color: #4a148c !important;

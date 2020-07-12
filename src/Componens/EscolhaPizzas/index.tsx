@@ -6,6 +6,7 @@ import { ComponentButton } from "../Buttons/index";
 
 export const EscolhaPizzas = (props: IOfertas) => {
 	const [visualKey, setvisualKey] = useState<boolean>(true);
+	const [visualButton, setvisualButton] = useState<boolean>(true);
 	const [infoPizzas, setinfoPizzas] = useState<IDados[]>([
 		{
 			key: "",
@@ -36,10 +37,38 @@ export const EscolhaPizzas = (props: IOfertas) => {
 		}
 	}, [infoPizzas]);
 
+	useEffect(() => {
+		let chooseBrn = document.querySelector(".active");
+		setvisualButton(!chooseBrn);
+	}, [chooses]);
+
 	const action = (
 		e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
 		value: any
 	) => {
+		let elementId: any = parseInt(e.currentTarget.id);
+		elementId = parseInt(elementId);
+
+		if (!!e.currentTarget.parentElement?.childNodes.length) {
+			for (
+				let i = 0;
+				i < e.currentTarget.parentElement?.childNodes.length;
+				i++
+			) {
+				if (i !== elementId) {
+					e.currentTarget.parentElement
+						.getElementsByTagName("a")
+						.item(i)
+						?.classList.remove("active");
+				} else {
+					e.currentTarget.parentElement
+						.getElementsByTagName("a")
+						.item(i)
+						?.classList.toggle("active");
+				}
+			}
+		}
+
 		const pizzaDoDia = [
 			{
 				pizza: value.nome,
@@ -48,8 +77,6 @@ export const EscolhaPizzas = (props: IOfertas) => {
 		];
 
 		setchooses(pizzaDoDia);
-
-		return e.currentTarget.classList.toggle("active");
 	};
 
 	return (
@@ -70,10 +97,10 @@ export const EscolhaPizzas = (props: IOfertas) => {
 								<a
 									href="#!"
 									className="collection-item"
-									key={index}
 									onClick={(
 										e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
 									) => action(e, element)}
+									id={index}
 								>
 									<span className="icon-box">
 										<i className="Tiny material-icons">local_pizza</i>
@@ -92,6 +119,7 @@ export const EscolhaPizzas = (props: IOfertas) => {
 						destino={"/Massa"}
 						remetente={"pizzas"}
 						chooses={chooses}
+						disabled={visualButton}
 					/>
 				</>
 			)}
