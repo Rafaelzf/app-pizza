@@ -4,12 +4,19 @@ export const getItem = () => {
 	return chooseItens;
 };
 
-export const setItem = (chooses: any, key: any) => {
-	const chave = key;
-	const choices = getItem() || {};
-	let userChoose: any = chooses;
+export const setItem = (key: any, chooses: any) => {
+	let old: string | [] | null = sessionStorage.getItem(key);
 
-	const vv = [choices, userChoose];
+	if (old === null) {
+		old = [];
+	} else {
+		old = JSON.parse(old);
+	}
 
-	sessionStorage.setItem(chave, JSON.stringify(userChoose));
+	if (!!old) {
+		console.log(key, old);
+		return sessionStorage.setItem(key, JSON.stringify(old.concat(chooses)));
+	}
+
+	return;
 };

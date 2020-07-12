@@ -19,6 +19,8 @@ export interface IButtons {
 	home: boolean;
 	destino: string;
 	text?: string;
+	chooses?: object;
+	remetente?: string;
 }
 
 export interface IRecheios {

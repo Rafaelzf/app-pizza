@@ -3,7 +3,6 @@ import { IOfertas, IDados } from "../types/types";
 import "materialize-css/dist/css/materialize.min.css";
 import { ContainerCollection, Title } from "../css/style";
 import { ComponentButton } from "../Buttons/index";
-import { setItem } from "../../Helpers/index";
 
 export const EscolhaPizzas = (props: IOfertas) => {
 	const [visualKey, setvisualKey] = useState<boolean>(true);
@@ -14,6 +13,8 @@ export const EscolhaPizzas = (props: IOfertas) => {
 			valor: "",
 		},
 	]);
+	const [chooses, setchooses] = useState<object>();
+
 	const { dados } = props;
 
 	const msg = (erro: string) => {
@@ -46,9 +47,7 @@ export const EscolhaPizzas = (props: IOfertas) => {
 			},
 		];
 
-		const setChoose = setItem;
-
-		setChoose(pizzaDoDia, "Ofertas");
+		setchooses(pizzaDoDia);
 
 		return e.currentTarget.classList.toggle("active");
 	};
@@ -88,7 +87,12 @@ export const EscolhaPizzas = (props: IOfertas) => {
 						})}
 					</ContainerCollection>
 
-					<ComponentButton home={true} destino={"/Massa"} />
+					<ComponentButton
+						home={true}
+						destino={"/Massa"}
+						remetente={"pizzas"}
+						chooses={chooses}
+					/>
 				</>
 			)}
 		</>

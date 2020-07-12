@@ -15,7 +15,6 @@ export const Massa = () => {
 			.database()
 			.ref("massa")
 			.on("value", (snapshot: any) => {
-				console.log(snapshot.val());
 				setCount(snapshot.val());
 			});
 	}, []);
