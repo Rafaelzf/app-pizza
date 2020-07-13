@@ -1,77 +1,82 @@
 {
-  "name": "app-pizza",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "@types/jest": "^24.0.0",
-    "@types/node": "^12.0.0",
-    "@types/react": "^16.9.0",
-    "@types/react-dom": "^16.9.0",
-    "eitherx": "^1.0.2",
-    "firebase": "^7.15.5",
-    "materialize-css": "^1.0.0-rc.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "^3.4.1",
-    "styled-components": "^5.1.1",
-    "typescript": "~3.7.2"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "lint": "tslint --project ./tsconfig.json --fix src/**/**/*.ts src/**/**/*.tsx"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "shared-config"
-    ],
-    "rules": {
-      "additional-rule": "warn"
-    },
-    "overrides": [
-      {
-        "files": [
-          "**/*.ts?(x)"
-        ],
-        "rules": {
-          "additional-typescript-only-rule": "warn"
-        }
-      }
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "@types/react-router-dom": "^5.1.5",
-    "@types/styled-components": "^5.1.1",
-    "@typescript-eslint/eslint-plugin": "^3.6.0",
-    "@typescript-eslint/parser": "^3.6.0",
-    "eslint": "^7.4.0",
-    "eslint-config-airbnb": "^18.2.0",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-import-resolver-typescript": "^2.0.0",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-jsx-a11y": "^6.3.1",
-    "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-react": "^7.20.3",
-    "eslint-plugin-react-hooks": "^4.0.6",
-    "prettier": "^2.0.5"
-  }
+	"name": "app-pizza",
+	"version": "0.1.0",
+	"engines": {
+		"node": "12.x",
+		"npm": "6.x",
+		"yarn": "1.x"
+	},
+	"private": true,
+	"dependencies": {
+		"@testing-library/jest-dom": "^4.2.4",
+		"@testing-library/react": "^9.3.2",
+		"@testing-library/user-event": "^7.1.2",
+		"@types/jest": "^24.0.0",
+		"@types/node": "^12.0.0",
+		"@types/react": "^16.9.0",
+		"@types/react-dom": "^16.9.0",
+		"eitherx": "^1.0.2",
+		"firebase": "^7.15.5",
+		"materialize-css": "^1.0.0-rc.2",
+		"react": "^16.13.1",
+		"react-dom": "^16.13.1",
+		"react-router-dom": "^5.2.0",
+		"react-scripts": "^3.4.1",
+		"styled-components": "^5.1.1",
+		"typescript": "~3.7.2"
+	},
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject",
+		"lint": "tslint --project ./tsconfig.json --fix src/**/**/*.ts src/**/**/*.tsx"
+	},
+	"eslintConfig": {
+		"extends": [
+			"react-app",
+			"shared-config"
+		],
+		"rules": {
+			"additional-rule": "warn"
+		},
+		"overrides": [
+			{
+				"files": [
+					"**/*.ts?(x)"
+				],
+				"rules": {
+					"additional-typescript-only-rule": "warn"
+				}
+			}
+		]
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"devDependencies": {
+		"@types/react-router-dom": "^5.1.5",
+		"@types/styled-components": "^5.1.1",
+		"@typescript-eslint/eslint-plugin": "^3.6.0",
+		"@typescript-eslint/parser": "^3.6.0",
+		"eslint": "^7.4.0",
+		"eslint-config-airbnb": "^18.2.0",
+		"eslint-config-prettier": "^6.11.0",
+		"eslint-import-resolver-typescript": "^2.0.0",
+		"eslint-plugin-import": "^2.22.0",
+		"eslint-plugin-jsx-a11y": "^6.3.1",
+		"eslint-plugin-prettier": "^3.1.4",
+		"eslint-plugin-react": "^7.20.3",
+		"eslint-plugin-react-hooks": "^4.0.6",
+		"prettier": "^2.0.5"
+	}
 }
