@@ -68,7 +68,7 @@ export const EscolhaBorda = (props: IchooseMassa) => {
 									className="collection-item"
 									key={index}
 									data-index-number={index}
-									id={index}
+									id={index.toString()}
 									onClick={(
 										e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
 									) => {

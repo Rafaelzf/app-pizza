@@ -91,7 +91,7 @@ export const EscolhaRecheio = (props: IRecheios) => {
 											<Link
 												to="#!"
 												className="collection-item"
-												key={index}
+												key={index.toString()}
 												data-index-number={index}
 												onClick={(
 													e: React.MouseEvent<HTMLAnchorElement, MouseEvent>

@@ -79,7 +79,7 @@ export const EscolhaPizzas = (props: IOfertas) => {
 									onClick={(
 										e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
 									) => action(e, element)}
-									id={index}
+									id={index.toString()}
 								>
 									<span className="icon-box">
 										<i className="Tiny material-icons">local_pizza</i>

@@ -65,7 +65,7 @@ export const EscolhaTamanho = (props: IchooseMassa) => {
 									to="#!"
 									className="collection-item"
 									key={index}
-									id={index}
+									id={index.toString()}
 									data-index-number={index}
 									onClick={(
 										e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
