@@ -3,7 +3,7 @@ import { IOfertas, IDados } from "../types/types";
 import "materialize-css/dist/css/materialize.min.css";
 import { ContainerCollection, Title } from "../css/style";
 import { ComponentButton } from "../Buttons/index";
-
+import { clickEfect } from "../../Helpers/clickEfect";
 export const EscolhaPizzas = (props: IOfertas) => {
 	const [visualKey, setvisualKey] = useState<boolean>(true);
 	const [visualButton, setvisualButton] = useState<boolean>(true);
@@ -46,28 +46,7 @@ export const EscolhaPizzas = (props: IOfertas) => {
 		e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
 		value: any
 	) => {
-		let elementId: any = parseInt(e.currentTarget.id);
-		elementId = parseInt(elementId);
-
-		if (!!e.currentTarget.parentElement?.childNodes.length) {
-			for (
-				let i = 0;
-				i < e.currentTarget.parentElement?.childNodes.length;
-				i++
-			) {
-				if (i !== elementId) {
-					e.currentTarget.parentElement
-						.getElementsByTagName("a")
-						.item(i)
-						?.classList.remove("active");
-				} else {
-					e.currentTarget.parentElement
-						.getElementsByTagName("a")
-						.item(i)
-						?.classList.toggle("active");
-				}
-			}
-		}
+		clickEfect(false, e);
 
 		const pizzaDoDia = [
 			{

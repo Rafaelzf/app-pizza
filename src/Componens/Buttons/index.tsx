@@ -3,7 +3,7 @@ import { IButtons } from "../types/types";
 import "materialize-css/dist/css/materialize.min.css";
 import { ContainerButtons } from "../css/style";
 import { Link, useHistory } from "react-router-dom";
-import { setItem } from "../../Helpers/index";
+import { setItem } from "../../Helpers/storage";
 
 export const ComponentButton = (props: IButtons) => {
 	const { home, destino, text, chooses, remetente, disabled } = props;
@@ -37,7 +37,7 @@ export const ComponentButton = (props: IButtons) => {
 				<ContainerButtons>
 					<Link
 						to={destino}
-						className="btn-large pink darken-4"
+						className={`btn-large ${!!disabled ? "disabled" : "pink darken-4"}`}
 						onClick={appendToStorage}
 					>
 						{text}

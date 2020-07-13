@@ -15,8 +15,13 @@ export const Text = styled.span`
 `;
 
 export const Collection = styled.div`
-	.collection-header {
-		font-weight: bold;
+	.collection.with-header .collection-header {
+		background-color: #ff9e80;
+
+		h6 {
+			font-weight: bold;
+			color: #c62828;
+		}
 	}
 	.active {
 		background-color: #ffc107 !important;

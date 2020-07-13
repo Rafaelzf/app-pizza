@@ -14,6 +14,8 @@ export const EscolhaRecheio = (props: IRecheios) => {
 			tipo: "",
 		},
 	]);
+	const [chooses, setchooses] = useState<object[]>();
+	const [visualButton, setvisualButton] = useState<boolean>(true);
 
 	const { dados } = props;
 
@@ -32,12 +34,31 @@ export const EscolhaRecheio = (props: IRecheios) => {
 
 	useEffect(() => {
 		if (infoRecheios.length > 1) {
-			console.log(infoRecheios);
 			setvisualKey(false);
 		}
 	}, [infoRecheios]);
 
-	const action = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+	useEffect(() => {
+		console.log("oi");
+		let chooseBrn = document.querySelector(".active");
+		setvisualButton(!chooseBrn);
+	}, [chooses]);
+
+	const action = (
+		e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+		value: any
+	) => {
+		let recheios = {
+			key: value.key,
+			nome: value.nome,
+			tipo: value.tipo,
+		};
+		if (!!chooses) {
+			setchooses([...chooses, recheios]);
+		} else {
+			setchooses([recheios]);
+		}
+
 		return e.currentTarget.classList.toggle("active");
 	};
 	return (
@@ -76,7 +97,7 @@ export const EscolhaRecheio = (props: IRecheios) => {
 												onClick={(
 													e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
 												) => {
-													action(e);
+													action(e, element);
 												}}
 											>
 												<Text>{element.nome}</Text>
@@ -88,7 +109,14 @@ export const EscolhaRecheio = (props: IRecheios) => {
 						</ul>
 					</Collection>
 
-					<ComponentButton home={false} destino={"/Borda"} text={"Próximo"} />
+					<ComponentButton
+						home={false}
+						remetente={"recheio"}
+						chooses={chooses}
+						disabled={visualButton}
+						destino={"/Borda"}
+						text={"Próximo"}
+					/>
 				</>
 			)}
 		</>

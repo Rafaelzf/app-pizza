@@ -14,8 +14,7 @@ export const setItem = (key: any, chooses: any) => {
 	}
 
 	if (!!old) {
-		console.log(key, old);
-		return sessionStorage.setItem(key, JSON.stringify(old.concat(chooses)));
+		return sessionStorage.setItem(key, JSON.stringify(chooses));
 	}
 
 	return;
