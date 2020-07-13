@@ -23,7 +23,7 @@ export const ComponentButton = (props: IButtons) => {
 			{!!home ? (
 				<ContainerButtons>
 					<Link
-						to={destino}
+						to={"/End"}
 						className={`btn-large ${!!disabled ? "disabled" : "pink darken-4"}`}
 						onClick={appendToStorage}
 					>

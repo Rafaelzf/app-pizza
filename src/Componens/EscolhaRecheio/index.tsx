@@ -39,7 +39,6 @@ export const EscolhaRecheio = (props: IRecheios) => {
 	}, [infoRecheios]);
 
 	useEffect(() => {
-		console.log("oi");
 		let chooseBrn = document.querySelector(".active");
 		setvisualButton(!chooseBrn);
 	}, [chooses]);

@@ -1,26 +1,28 @@
 import React, { useState, useEffect } from "react";
-import { IchooseMassa } from "../types/types";
 import { ComponentButton } from "../Buttons/index";
 import { Title } from "../css/style";
+import { getItem } from "../../Helpers/storage";
+import { IEscolhas } from "../types/types";
+
 import "materialize-css/dist/css/materialize.min.css";
 import pizza from "../../Images/pizza-17874446.jpg";
 
-export const EscolhaSuas = (props: IchooseMassa) => {
+export const EscolhaSuas = () => {
 	const [visualKey, setvisualKey] = useState<boolean>(true);
-	const { massa } = props;
-
-	const msg = (erro: string) => {
-		console.error(erro);
-	};
+	const [chooses, setchooses] = useState<IEscolhas>();
 
 	useEffect(() => {
-		if (typeof massa !== "object") {
-			setvisualKey(false);
-			throw msg("Houve algum erro na leitura do objeto.");
-		} else if (massa.length > 0) {
+		let objectDatas = getItem();
+		if (!!objectDatas) {
+			setchooses(objectDatas);
+		}
+	}, []);
+
+	useEffect(() => {
+		if (!!chooses) {
 			setvisualKey(false);
 		}
-	}, [massa]);
+	}, [chooses]);
 
 	return (
 		<>
@@ -43,22 +45,29 @@ export const EscolhaSuas = (props: IchooseMassa) => {
 								<div className="card-content">
 									<ul>
 										<li>
-											<strong>Massa</strong>: xxxxx
+											<strong>Massa</strong>: {chooses?.massa[0].massa}
 										</li>
 										<li>
-											<strong>Recheio</strong>
 											<ul>
-												<li>xxxxx</li>
-												<li>xxxxx</li>
+												<li>
+													<strong>Recheio</strong>
+												</li>
 
-												<li>xxxxx</li>
+												{chooses?.recheio.map((element, index) => {
+													return (
+														<li key={index}>
+															- <strong>item:</strong> {element.nome} (
+															<em>{element.tipo}</em>)
+														</li>
+													);
+												})}
 											</ul>
 										</li>
 										<li>
-											<strong>Borda</strong>: xxxxx
+											<strong>Borda</strong>: {chooses?.borda[0].massa}
 										</li>
 										<li>
-											<strong>Tamanho</strong>: xxxxx
+											<strong>Tamanho</strong>: {chooses?.tamanho[0].tamanho}
 										</li>
 									</ul>
 								</div>
@@ -66,7 +75,7 @@ export const EscolhaSuas = (props: IchooseMassa) => {
 						</div>
 					</div>
 
-					<ComponentButton home={false} destino={"/"} text={"Finalizar"} />
+					<ComponentButton home={false} destino={"/End"} text={"Finalizar"} />
 				</>
 			)}
 		</>

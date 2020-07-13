@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { IchooseMassa, IDados } from "../types/types";
+import { IchooseMassa } from "../types/types";
 import { Link } from "react-router-dom";
 import { ComponentButton } from "../Buttons/index";
 import { Title, Text, Collection } from "../css/style";
@@ -22,8 +22,6 @@ export const EscolhaMassa = (props: IchooseMassa) => {
 			setvisualKey(false);
 			throw msg("Houve algum erro na leitura do objeto.");
 		} else if (massa.length > 0) {
-			console.log(massa);
-
 			setinfoPizzas(massa);
 		}
 	}, [massa]);
@@ -44,8 +42,6 @@ export const EscolhaMassa = (props: IchooseMassa) => {
 		value: any
 	) => {
 		clickEfect(false, e);
-
-		console.log(value);
 
 		const massa = [{ massa: value }];
 		setchooses(massa);

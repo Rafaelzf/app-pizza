@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { IchooseMassa } from "../types/types";
 import { Link } from "react-router-dom";
+import { clickEfect } from "../../Helpers/clickEfect";
 import { ComponentButton } from "../Buttons/index";
 import { Title, Text, Collection } from "../css/style";
 import "materialize-css/dist/css/materialize.min.css";
 
 export const EscolhaBorda = (props: IchooseMassa) => {
 	const [visualKey, setvisualKey] = useState<boolean>(true);
+	const [infoPizzas, setinfoPizzas] = useState<string[]>([]);
+	const [visualButton, setvisualButton] = useState<boolean>(true);
+	const [chooses, setchooses] = useState<object>();
 
 	const { massa } = props;
 
@@ -19,12 +23,30 @@ export const EscolhaBorda = (props: IchooseMassa) => {
 			setvisualKey(false);
 			throw msg("Houve algum erro na leitura do objeto.");
 		} else if (massa.length > 0) {
-			setvisualKey(false);
+			setinfoPizzas(massa);
 		}
 	}, [massa]);
 
-	const action = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-		return e.currentTarget.classList.toggle("active");
+	useEffect(() => {
+		if (infoPizzas.length > 1) {
+			setvisualKey(false);
+		}
+	}, [infoPizzas]);
+
+	useEffect(() => {
+		let chooseBrn = document.querySelector(".active");
+		setvisualButton(!chooseBrn);
+	}, [chooses]);
+
+	const action = (
+		e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+		value: any
+	) => {
+		clickEfect(false, e);
+
+		const massa = [{ massa: value }];
+
+		setchooses(massa);
 	};
 
 	return (
@@ -46,10 +68,11 @@ export const EscolhaBorda = (props: IchooseMassa) => {
 									className="collection-item"
 									key={index}
 									data-index-number={index}
+									id={index}
 									onClick={(
 										e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
 									) => {
-										action(e);
+										action(e, element);
 									}}
 								>
 									<Text>{element}</Text>
@@ -58,7 +81,14 @@ export const EscolhaBorda = (props: IchooseMassa) => {
 						})}
 					</Collection>
 
-					<ComponentButton home={false} destino={"/Tamanho"} text={"Próximo"} />
+					<ComponentButton
+						home={false}
+						disabled={visualButton}
+						remetente={"borda"}
+						destino={"/Tamanho"}
+						text={"Próximo"}
+						chooses={chooses}
+					/>
 				</>
 			)}
 		</>

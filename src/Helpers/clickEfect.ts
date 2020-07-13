@@ -6,7 +6,6 @@ export const clickEfect = (
 	elementId = parseInt(elementId);
 
 	if (change !== true) {
-		console.log("i");
 		if (!!e.currentTarget.parentElement?.childNodes.length) {
 			for (
 				let i = 0;
