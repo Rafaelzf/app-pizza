@@ -1,54 +1,54 @@
 {
-  "parser": "@typescript-eslint/parser",
-  "env": {
-    "browser": true,
-    "jest": true
-  },
-  "plugins": [
-    "@typescript-eslint/consistent-type-assertion",
-    "react",
-    "react-hooks",
-    "jsx-a11y",
-    "import"
-  ],
+	"parser": "@typescript-eslint/parser",
+	"env": {
+		"browser": true,
+		"jest": true
+	},
+	"plugins": [
+		"@typescript-eslint/consistent-type-assertion",
+		"react",
+		"react-hooks",
+		"jsx-a11y",
+		"import"
+	],
 
-  "extends": [
-    "airbnb",
-    "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "prettier/@typescript-eslint",
-    "plugin:prettier/recommended",
-    "react-app"
-  ],
-  "include": ["src/**/*.ts", "test/**/*.ts", "typings/**/*.ts", "src/**/*.js"],
-  "rules": {
-    "prettier/prettier": "error",
-    "react/jsx-one-expression-per-line": "off",
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
-    "react/jsx-filename-extension": [
-      1,
-      { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
-    ],
-    "import/prefer-default-export": "off",
-    "@typescript-eslint/explicit-function-return-type": [
-      "error",
-      { "allowExpressions": true }
-    ],
-    "import/extensions": [
-      "error",
-      "ignorePackages",
-      {
-        "ts": "never",
-        "tsx": "never"
-      }
-    ],
-    "no-unused-expressions": ["error", { "allowTaggedTamplates": true }],
-    "global-require": "off"
-  },
-  "settings": {
-    "import/resolver": {
-      "typescript": {}
-    }
-  }
+	"extends": [
+		"airbnb",
+		"plugin:react/recommended",
+		"plugin:@typescript-eslint/recommended",
+		"prettier/@typescript-eslint",
+		"plugin:prettier/recommended",
+		"react-app"
+	],
+	"include": ["src/**/*.ts", "test/**/*.ts", "typings/**/*.ts", "src/**/*.js"],
+	"rules": {
+		"prettier/prettier": "error",
+		"react/jsx-one-expression-per-line": "off",
+		"react-hooks/rules-of-hooks": "error",
+		"react-hooks/exhaustive-deps": "warn",
+		"react/jsx-filename-extension": [
+			1,
+			{ "extensions": [".js", ".jsx", ".ts", ".tsx"] }
+		],
+		"import/prefer-default-export": "off",
+		"@typescript-eslint/explicit-function-return-type": [
+			"error",
+			{ "allowExpressions": true }
+		],
+		"import/extensions": [
+			"error",
+			"ignorePackages",
+			{
+				"ts": "never",
+				"tsx": "never"
+			}
+		],
+		"no-unused-expressions": ["error", { "allowTaggedTamplates": true }],
+		"global-require": "off"
+	},
+	"settings": {
+		"import/resolver": {
+			"typescript": {}
+		}
+	}
 }
