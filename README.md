@@ -14,7 +14,7 @@
 <li>materialize-css</li>
 <li>Firebase</li>
 </ul>
-## Para rodar o projeto
+<strong>Para rodar o projeto</strong>
 
 Após baixar o projeto em seu computador, vá até a raiz do app e pela linha de comando digite:
 In the project directory, you can run:
