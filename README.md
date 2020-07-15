@@ -1,16 +1,30 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h2>Esse projeto exercício foi feito em ecmascript 6, usando a biblioteca ReactJs e banco de dados Firebase.</h2>
 
-## Available Scripts
+<strong>Outras libs, bibliotecas e recursos usados:</strong>
 
+<ul>
+	<li>Create React App</li>
+<li>ESlint</li>
+<li>Prettier</li>
+<li>EditorConfig</li>
+<li>TypeScript</li>
+<li>Styled-components</li>
+<li>React-hooks</li>
+<li>React-router-dom</li>
+<li>materialize-css</li>
+<li>Firebase</li>
+</ul>
+## Para rodar o projeto
+
+Após baixar o projeto em seu computador, vá até a raiz do app e pela linha de comando digite:
 In the project directory, you can run:
 
 ### `yarn start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+O projeto abrirá em:<br />
+Open [http://localhost:3000](http://localhost:3000).
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+<h2>Para mais informações leia os textos fornecidos pelo comunidade React logo abaixo. </h2>
 
 ### `yarn test`
 
